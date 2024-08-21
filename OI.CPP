@@ -1,6 +1,6 @@
-    #include <iostream>
-    #include <string>
-    using namespace std;
+#include <iostream>
+#include <string>
+using namespace std;
 
     class coisas_das_formas
     {
@@ -63,7 +63,7 @@
             cin >> a;
             set_arestas(a);
 
-            area = 6 * (arestas * arestas);
+            area = 6 * (a * a);
 
 
             cout << area << "\n";
@@ -78,13 +78,49 @@
             cin >> a;
             set_arestas(a);
 
-            volume = arestas * arestas;
+            volume = a * a * a;
 
             cout << volume << "\n";
             return volume;
         }
     
 
+    };
+    
+        class piramide : public coisas_das_formas
+    {
+        public:
+        int calcular_area() override
+        {
+            int altura, base;
+            cout << "Digite o valor da altura da pirâmide:";
+            cin >> altura;
+
+            cout << "Digite o valor do lado da base:";
+            cin >> base;
+
+            area = base * base + 4 * base * altura / 2.0;
+
+        cout << area << "\n";
+        return area;
+        }
+        
+        int calcular_volume() override
+        {
+            int altura, base, volume;
+
+            cout << "Digite o valor da altura da pirâmide:";
+            cin >> altura;
+            
+            cout << "Digite o valor do lado da base:";
+            cin >> base;
+
+            volume = (1.0 / 3.0) * base * base * altura;
+            
+            cout << volume << "\n";
+            return volume;
+
+        }
     };
 
     class esfera : public coisas_das_formas
@@ -98,11 +134,12 @@
             cin >> r;
             set_raio(r);
 
-            area = 4 * pi * raio;
+            area = 4 * pi * (r * r);
 
             cout << area << "\n";
             return area;
         }
+        
         int calcular_volume() override
         {
             int r, volume;
@@ -111,26 +148,13 @@
             cin >> r;
             set_raio(r);
 
-            volume = (4.0 / 3.0) * raio * pi;
+            volume = (4.0 / 3.0) * pi * (r * r * r);
             cout << volume << "\n";
             return volume;
 
         }
     };
-
-    class piramide : public coisas_das_formas
-    {
-        int calcular_area() override
-        {
-        //Será que eu tenho que calcular as areas da base e lateral?
-        }
-        int calcular_volume() override
-        {
-         //Mesma icógnita   
-        }
-    };
-
-
+    
     class paralelepipedo : public coisas_das_formas
     {
         int calcular_area() override
@@ -166,14 +190,12 @@
     };
 
 
-
-    
-
-    int main()
+     int main()
     {
         cubo cube;
         esfera bola;
         paralelepipedo para;
+        piramide pira;
 
         int (coisas_das_formas::*puteiro_area)() = &coisas_das_formas::calcular_area;
         int (coisas_das_formas::*puteiro_volume)() = &coisas_das_formas::calcular_volume;
@@ -186,6 +208,9 @@
 
         (bola.*puteiro_area)();
         (bola.*puteiro_volume)();
+        
+        (pira.*puteiro_area)();
+        (pira.*puteiro_volume)();
 
         return 0;
     }
