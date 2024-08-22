@@ -66,7 +66,7 @@ using namespace std;
             area = 6 * (a * a);
 
 
-            cout << area << "\n";
+            cout << "A área do cubo é: "  << area << "\n";
             return area;
         }
 
@@ -74,13 +74,13 @@ using namespace std;
         {
             int a, volume;
 
-            cout << "Qual o tamanho das arestas? ";
+            cout << "Qual o tamanho das arestas?";
             cin >> a;
             set_arestas(a);
 
             volume = a * a * a;
 
-            cout << volume << "\n";
+            cout << "O volume do cubo é: " << volume << "\n";
             return volume;
         }
     
@@ -101,7 +101,7 @@ using namespace std;
 
             area = base * base + 4 * base * altura / 2.0;
 
-        cout << area << "\n";
+        cout << "A área da pirâmide é: " << area << "\n";
         return area;
         }
         
@@ -117,7 +117,7 @@ using namespace std;
 
             volume = (1.0 / 3.0) * base * base * altura;
             
-            cout << volume << "\n";
+            cout << "O volume da pirâmide é: " << volume << "\n";
             return volume;
 
         }
@@ -136,7 +136,7 @@ using namespace std;
 
             area = 4 * pi * (r * r);
 
-            cout << area << "\n";
+            cout << "A área da esfera é: " << area << "\n";
             return area;
         }
         
@@ -149,7 +149,7 @@ using namespace std;
             set_raio(r);
 
             volume = (4.0 / 3.0) * pi * (r * r * r);
-            cout << volume << "\n";
+            cout << "O volume da esfera é: " << volume << "\n";
             return volume;
 
         }
@@ -169,7 +169,7 @@ using namespace std;
             area = (2 * aresta1 * aresta2) + (2 * aresta1 * aresta3) + (2 * aresta3 * aresta2);
 
 
-            cout << area << "\n";
+            cout << "A área do paralelepipedo é: " << area << "\n";
             return area;
             
         }
@@ -184,7 +184,7 @@ using namespace std;
 
             volume = aresta1 * aresta2 * aresta3;
 
-            cout << volume << "\n";
+            cout << "O volume do paralelepipedo é: " << volume << "\n";
             return volume;      
         }
     };
